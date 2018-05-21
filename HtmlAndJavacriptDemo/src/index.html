@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Home Page Title</title>
+		<meta name="author" content="Author Name"/>
+		
+		<!--  HTML Comment -->
+		<!-- Loading a javascript file -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			function validate() {
+				alert("Hello");
+				
+				var x = "string";
+				x = 12.5;
+				x = false;
+				
+				
+			}
+		</script>
+		
+		<style type="text/css">
+			h1 {
+				color: blue;
+			}
+			
+			div#headerDiv {
+				background-color: red; 
+			}
+			
+			div#contentDiv {
+				color: blue;
+				background-color: rgb(224, 225, 229);
+			}
+			
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/jquery-3.3.1.css">
+		  
+	</head>
+	<body>
+		<h1>Header 1</h1>
+		
+		<!-- Inline CSS styling -->
+		<div id="headerDiv">
+			HEADER DIV
+		</div>
+		<div id="contentDiv">
+			<h4>Sample form</h4>
+			
+			<foRm method="GET" action="http://domain.com/formsubmission">
+				<table>
+					<tr>
+						<td>First Name:</td>
+						<td>
+							<input type="text" id="firstName"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+			
+		</div>
+		<div id="footerDiv">
+			FOOTER DIV
+		</div>
+	</body>
+</html>
