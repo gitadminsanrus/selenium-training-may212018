@@ -3,54 +3,36 @@ package ca.sanrus.automation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import ca.sanrus.automation.constant.Browser;
+import ca.sanrus.automation.util.ScreenshotUtil;
+import ca.sanrus.automation.util.WebDriverUtil;
 
 public class TestWebAutomation {
 
 	public static void main(String[] args) {
 		
-		//Firefox gecko driver must be set in the system's property, so that the web driver can recognize and launch the browser.
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
-
-		//the following statement will launch Firefox browser
-		WebDriver webDriver = new FirefoxDriver();
+		WebDriver webDriver = WebDriverUtil.getWebDriver(Browser.FIREFOX);
+		webDriver.navigate().to("https://google.com/");
 		
-		//loading a web page
-		webDriver.get("https://www.google.ca/");
+		WebElement searchText = webDriver.findElement(By.id("lst-ib"));
 		
-		//find search text web element on Google search web page
-		WebElement webElementSearchText = webDriver.findElement(By.id("lst-ib"));
+		//Typing characters onto a text web element
+		searchText.sendKeys("Google search");
 		
-		//enter the search text "Google"
-		webElementSearchText.sendKeys("Google");
+		//submit the entered text
+		searchText.submit();
 		
-		//after the search text is entered, do submit(), this will simulate pressing of "Enter" key
-		webElementSearchText.submit();
+		ScreenshotUtil.saveScreenshotAs(webDriver, "test.png");
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		searchText = webDriver.findElement(By.id("lst-ib"));
+		searchText.clear();
+		searchText.sendKeys("Microsoft");
+		searchText.submit();
 		
-		//verification of the search page
-		//1. Verify by the URL
-		String url = webDriver.getCurrentUrl();
-		
-		//2. verify by title
-		String pageTitle = webDriver.getTitle();
-		
-		System.out.println("Page URL = " + url);
-		System.out.println("Page Title = " + pageTitle);
+		ScreenshotUtil.saveScreenshotAs(webDriver, "test_1.png");
 		
 		
-//		//closes only the current window
-//		webDriver.close();
-//		
-//		//closes all windows and quits the browser
-//		webDriver.quit();
-
 	}
 
 }
