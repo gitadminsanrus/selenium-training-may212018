@@ -1,6 +1,8 @@
 package ca.sanrus.automation.util;
 
+import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import ca.sanrus.automation.constant.Browser;
@@ -45,6 +47,15 @@ public class WebDriverUtil {
 					break;
 					
 				case CHROME:
+					if (osName.contains("mac")) {
+						driverPath += "chromedriver";
+					} else {
+						throw new RuntimeException("Chrome driver is not set for OS = " + osName);
+					}
+					
+					System.setProperty("webdriver.chrome.driver", driverPath);
+					webDriver = new ChromeDriver();
+					
 					break;
 			}
 			
