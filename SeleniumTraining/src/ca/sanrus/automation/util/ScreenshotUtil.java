@@ -18,7 +18,7 @@ public class ScreenshotUtil {
 			e.printStackTrace();
 		}
 		
-		//capturing google search results screenshot
+		//capturing screenshot as bytes
 		byte[] screenshotBytes = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.BYTES);
 		
 		try {

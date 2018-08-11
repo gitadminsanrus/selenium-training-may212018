@@ -16,6 +16,8 @@ public class HandlingWindowsDemo {
 		WebDriver driver = WebDriverUtil.getWebDriver(Browser.FIREFOX);
 		driver.navigate().to("file:///Users/sanrustrainingcentre/Development/selenium-training-may212018/SeleniumTraining/src/ca/sanrus/automation/windows/test_windows.html");
 		
+		//maximizes the browser window to maximum resolution
+		driver.manage().window().maximize();
 		
 		WebElement paymentPageLink = driver.findElement(By.linkText("Payment Page"));
 		paymentPageLink.click();
